@@ -1,0 +1,45 @@
+# Settings
+# windowTitleProject   = '${projectDirectory:+ — ${projectDirectory/^.*\///}}'
+# windowTitle          = '$TM_DISPLAYNAME$windowTitleProject$windowTitleSCM'
+# Settings
+encoding         = UTF-8
+# fontName         = "Times"
+# fontSize         = 13
+# lineEndings      = '\n'
+showInvisibles   = true
+softWrap         = true
+spellChecking    = false
+tabSize          = 2
+invisiblesMap    = "~ \s\t┊"
+
+# Hide log, vendor and tmp directories from search popups.
+# myExtraExcludes = "log,vendor,tmp"
+# excludeInFileChooser  = "{$excludeInFileChooser,$myExtraExcludes}" 
+# excludeInFolderSearch = "{$excludeInFolderSearch,$myExtraExcludes}" 
+fileBrowserGlob  = "{*,.tm_properties,.htaccess}"
+includeFiles = '{$includeFiles,.rvmrc}'
+
+# Variables
+TM_TODO_IGNORE       = '/disabled(-src)?|onig-.*|build|CxxTest/'
+# Variables
+PATH   = "$PATH:$HOME/bin"
+TM_GIT = "/usr/local/bin/git"
+TM_HG = "/usr/local/bin/hg"
+TM_RUBY = "/usr/local/var/rbenv/shims/ruby"
+PATH = "$PATH:/usr/local/var/rbenv/shims:/opt/local/bin:/usr/local/bin:/usr/texbin:/usr/bin"
+
+[ *.{md,markdown} ]
+softWrap         = true
+showInvisibles   = true
+softTabs         = true
+spellChecking    = true
+spellingLanguage = de
+tabSize          = 2
+theme            = 'Peacock'
+
+[ "{Capfile,Gemfile,Gemfile.lock,Guardfile}" ]
+fileType         = source.ruby
+
+[ Procfile ]
+fileType         = source.yaml
+
