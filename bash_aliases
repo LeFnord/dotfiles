@@ -27,7 +27,3 @@ alias buchhaltung='RAILS_RELATIVE_URL_ROOT=/buchhaltung rails server --port 3030
 alias ms1='rails server --port 3010'
 
 alias simulator='RAILS_RELATIVE_URL_ROOT=/simulator rails server --port 8100'
-
-alias gti='git'
-alias ripper='ripper-tags --tag-relative -R --all-files --force'
-alias ripper-json='ripper --format json'

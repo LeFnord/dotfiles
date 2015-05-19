@@ -13,9 +13,6 @@ export LSCOLORS=Exfxcxdxbxegedabagacad
 # PS1="\[\e[1;37m\]\!:\j \[\e[1;36m\]\w \[\033[1;32m\]\[\$(git_prompt_info)\]\[\033[0m\]\n\[\033[1;33m\]★\[\e[0m\] "
 
 if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
-  ## git bash-prompt
-  GIT_THEME_PROMPT_DIRTY='*'
-  # as last entry source the gitprompt script
   # GIT_PROMPT_THEME=Default
   GIT_PROMPT_THEME=Custom # use custom .git-prompt-colors.sh
   # GIT_PROMPT_THEME=Solarized # use theme optimized for solarized color scheme
@@ -48,12 +45,12 @@ source /usr/local/etc/bash_completion.d/git-completion.bash
 # ----------
 
 # some Ruby GC tunings
-export RUBY_GC_HEAP_INIT_SLOTS=2000000
-export RUBY_HEAP_SLOTS_INCREMENT=500000
-export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1.42
-export RUBY_HEAP_FREE_MIN=100000
-export RUBY_GC_HEAP_FREE_SLOTS=2000000
-export RUBY_GC_MALLOC_LIMIT=90000000
+# export RUBY_GC_HEAP_INIT_SLOTS=2000000
+# export RUBY_HEAP_SLOTS_INCREMENT=500000
+# export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1.42
+# export RUBY_HEAP_FREE_MIN=100000
+# export RUBY_GC_HEAP_FREE_SLOTS=2000000
+# export RUBY_GC_MALLOC_LIMIT=90000000
 
 # .. for dev in prod rename it
 # export RAILS_ENV='development'
