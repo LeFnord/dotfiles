@@ -3,19 +3,17 @@
 # windowTitle          = '$TM_DISPLAYNAME$windowTitleProject$windowTitleSCM'
 # Settings
 encoding         = UTF-8
-# fontName         = "Times"
-# fontSize         = 13
-# lineEndings      = '\n'
 showInvisibles   = true
 softWrap         = true
 spellChecking    = false
 tabSize          = 2
-invisiblesMap    = "~ \s\t┊"
+fontSize         = 12
+# invisiblesMap    = "~ \s\t┊"
 
 # Hide log, vendor and tmp directories from search popups.
 # myExtraExcludes = "log,vendor,tmp"
-# excludeInFileChooser  = "{$excludeInFileChooser,$myExtraExcludes}" 
-# excludeInFolderSearch = "{$excludeInFolderSearch,$myExtraExcludes}" 
+# excludeInFileChooser  = "{$excludeInFileChooser,$myExtraExcludes}"
+# excludeInFolderSearch = "{$excludeInFolderSearch,$myExtraExcludes}"
 fileBrowserGlob  = "{*,.tm_properties,.htaccess}"
 includeFiles = '{$includeFiles,.rvmrc}'
 
@@ -43,3 +41,12 @@ fileType         = source.ruby
 [ Procfile ]
 fileType         = source.yaml
 
+[ "*.{rb,coffee,js,haml,html}" ]
+# Disable trailing whitespace fix for YAML
+# files that can be broken by this feat.
+TM_STRIP_WHITESPACE_ON_SAVE = true
+
+[ "*.y{,a}ml" ]
+# Disable trailing whitespace fix for YAML
+# files that can be broken by this feat.
+TM_STRIP_WHITESPACE_ON_SAVE = false

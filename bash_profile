@@ -5,32 +5,22 @@ shopt -s checkwinsize
 
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 
-
-
-## git bash-prompt
-
-GIT_THEME_PROMPT_DIRTY='*'
-
-function git_prompt_info() {
-  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-  echo -e "(${ref#refs/heads/}$(parse_git_dirty))"
-}
-
-function parse_git_dirty {
-  if [[ -n $(git status -s 2> /dev/null |grep -v ^# | grep -v "working directory clean" ) ]]; then
-	  echo -e "$GIT_THEME_PROMPT_DIRTY"
-  else
-	echo -e "$GIT_THEME_PROMPT_CLEAN"
-  fi
-}
-
 # Tell ls to be colourful
 export CLICOLOR=1
 export LSCOLORS=Exfxcxdxbxegedabagacad
 
 # PS1="\[\e[1;37m\]\!:\j \[\e[1;36m\]\W ★\[\e[0m\] "
-PS1="\[\e[1;37m\]\!:\j \[\e[1;36m\]\w \[\033[1;32m\]\[\$(git_prompt_info)\]\[\033[0m\]\n\[\033[1;33m\]★\[\e[0m\] "
+# PS1="\[\e[1;37m\]\!:\j \[\e[1;36m\]\w \[\033[1;32m\]\[\$(git_prompt_info)\]\[\033[0m\]\n\[\033[1;33m\]★\[\e[0m\] "
 
+if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
+  ## git bash-prompt
+  GIT_THEME_PROMPT_DIRTY='*'
+  # as last entry source the gitprompt script
+  # GIT_PROMPT_THEME=Default
+  GIT_PROMPT_THEME=Custom # use custom .git-prompt-colors.sh
+  # GIT_PROMPT_THEME=Solarized # use theme optimized for solarized color scheme
+  source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
+fi
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -48,6 +38,11 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
+if [ -f /usr/local/etc/bash_completion.d ]; then
+  . /usr/local/etc/bash_completion.d/*
+fi
+
+source /usr/local/etc/bash_completion.d/git-completion.bash
 # ----------
 # exports
 # ----------
@@ -70,4 +65,3 @@ export EDITOR=mate
 # .. with rbenv
 export RBENV_ROOT=/usr/local/var/rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-  
