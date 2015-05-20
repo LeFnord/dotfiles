@@ -8,7 +8,6 @@ softWrap         = true
 spellChecking    = false
 tabSize          = 2
 fontSize         = 12
-# invisiblesMap    = "~ \s\t┊"
 
 # Hide log, vendor and tmp directories from search popups.
 # myExtraExcludes = "log,vendor,tmp"

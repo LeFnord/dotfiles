@@ -31,6 +31,10 @@ if [ -f ~/.bash_sec ]; then
     . ~/.bash_sec
 fi
 
+if [ -f ~/.git-completion.bash ]; then
+    . ~/.git-completion.bash
+fi
+
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
@@ -53,11 +57,11 @@ source /usr/local/etc/bash_completion.d/git-completion.bash
 # export RUBY_GC_MALLOC_LIMIT=90000000
 
 # .. for dev in prod rename it
-# export RAILS_ENV='development'
-# export RACK_ENV='development'
-export XMI='development'
+export EDITOR='mate'
 
-export EDITOR=mate
+export MS1_US_ACCOUNTS_EXTRA_SERVER=http://lefnord-gac.ngrok.io/
+export MS1_UK_ACCOUNTS_EXTRA_SERVER=http://lefnord-gac.ngrok.io/
+export GAC_MYSAGEONE_SERVER=http://lefnord-ms1.ngrok.io/
 
 # .. with rbenv
 export RBENV_ROOT=/usr/local/var/rbenv
