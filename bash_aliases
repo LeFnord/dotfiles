@@ -20,13 +20,6 @@ alias swift='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.
 
 alias psl='ps -ef | grep '
 
-alias sinatra-start='rackup --port 3000'
-
-# for standard sageone.de
-alias buchhaltung='RAILS_RELATIVE_URL_ROOT=/buchhaltung rails server --port 3030'
-alias ms1='rails server --port 3010'
-
-alias ber='bundle exec rails s'
-alias bep='bundle exec puma'
-
-alias simulator='RAILS_RELATIVE_URL_ROOT=/simulator rails server --port 8100'
+alias gcaa='git commit -a --amend'
+alias gfo='git fetch origin master'
+alias gpo='git pull origin master'

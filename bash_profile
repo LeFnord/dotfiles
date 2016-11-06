@@ -57,11 +57,8 @@ source /usr/local/etc/bash_completion.d/git-completion.bash
 # export RUBY_GC_MALLOC_LIMIT=90000000
 
 # .. for dev in prod rename it
-export EDITOR='mate'
-
-export MS1_US_ACCOUNTS_EXTRA_SERVER=http://lefnord-gac.ngrok.io/
-export MS1_UK_ACCOUNTS_EXTRA_SERVER=http://lefnord-gac.ngrok.io/
-export GAC_MYSAGEONE_SERVER=http://lefnord-ms1.ngrok.io/
+export EDITOR=atom
+export GIT_EDITOR=vim
 
 # .. with rbenv
 export RBENV_ROOT=/usr/local/var/rbenv
