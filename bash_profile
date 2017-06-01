@@ -9,12 +9,9 @@ shopt -s checkwinsize
 export CLICOLOR=1
 export LSCOLORS=Exfxcxdxbxegedabagacad
 
-# PS1="\[\e[1;37m\]\!:\j \[\e[1;36m\]\W ★\[\e[0m\] "
-# PS1="\[\e[1;37m\]\!:\j \[\e[1;36m\]\w \[\033[1;32m\]\[\$(git_prompt_info)\]\[\033[0m\]\n\[\033[1;33m\]★\[\e[0m\] "
-
 if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
-  # GIT_PROMPT_THEME=Default
-  GIT_PROMPT_THEME=Custom # use custom .git-prompt-colors.sh
+  GIT_PROMPT_THEME=Default
+  # GIT_PROMPT_THEME=Custom # use custom .git-prompt-colors.sh
   # GIT_PROMPT_THEME=Solarized # use theme optimized for solarized color scheme
   source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
 fi
@@ -43,7 +40,13 @@ if [ -f /usr/local/etc/bash_completion.d ]; then
   . /usr/local/etc/bash_completion.d/*
 fi
 
+source /usr/local/etc/bash_completion.d/brew
 source /usr/local/etc/bash_completion.d/git-completion.bash
+source /usr/local/etc/bash_completion.d/git-extras
+source /usr/local/etc/bash_completion.d/git-prompt.sh
+source /usr/local/etc/bash_completion.d/npm
+source /usr/local/etc/bash_completion.d/pandoc
+
 # ----------
 # exports
 # ----------
@@ -57,8 +60,22 @@ source /usr/local/etc/bash_completion.d/git-completion.bash
 # export RUBY_GC_MALLOC_LIMIT=90000000
 
 # .. for dev in prod rename it
-export EDITOR=atom
-export GIT_EDITOR=vim
+export EDITOR='atom'
+export BUNDLER_EDITOR='atom'
+export GIT_EDITOR='vim'
+
+# In order for gpg to find gpg-agent, gpg-agent must be running, and there must be an env
+# variable pointing GPG to the gpg-agent socket. This little script, which must be sourced
+# in your shell's init script (ie, .bash_profile, .zshrc, whatever), will either start
+# gpg-agent or set up the GPG_AGENT_INFO variable if it's already running.
+
+# Add the following to your shell init to set up gpg-agent automatically for every shell
+if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
+    source ~/.gnupg/.gpg-agent-info
+    export GPG_AGENT_INFO
+else
+    eval $(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)
+fi
 
 # .. with rbenv
 export RBENV_ROOT=/usr/local/var/rbenv
