@@ -11,8 +11,6 @@ export LSCOLORS=Exfxcxdxbxegedabagacad
 
 if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
   GIT_PROMPT_THEME=Default
-  # GIT_PROMPT_THEME=Custom # use custom .git-prompt-colors.sh
-  # GIT_PROMPT_THEME=Solarized # use theme optimized for solarized color scheme
   source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
 fi
 
@@ -51,14 +49,6 @@ source /usr/local/etc/bash_completion.d/pandoc
 # exports
 # ----------
 
-# some Ruby GC tunings
-# export RUBY_GC_HEAP_INIT_SLOTS=2000000
-# export RUBY_HEAP_SLOTS_INCREMENT=500000
-# export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1.42
-# export RUBY_HEAP_FREE_MIN=100000
-# export RUBY_GC_HEAP_FREE_SLOTS=2000000
-# export RUBY_GC_MALLOC_LIMIT=90000000
-
 # .. for dev in prod rename it
 export EDITOR='atom'
 export BUNDLER_EDITOR='atom'
@@ -68,8 +58,6 @@ export GIT_EDITOR='vim'
 # variable pointing GPG to the gpg-agent socket. This little script, which must be sourced
 # in your shell's init script (ie, .bash_profile, .zshrc, whatever), will either start
 # gpg-agent or set up the GPG_AGENT_INFO variable if it's already running.
-
-# Add the following to your shell init to set up gpg-agent automatically for every shell
 if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
     source ~/.gnupg/.gpg-agent-info
     export GPG_AGENT_INFO
