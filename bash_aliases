@@ -10,6 +10,8 @@ alias cla='colorls -al --sd  --gs'
 
 alias mkdate='mkdir `date "+%d_%m_%Y"`'
 alias mongorun='mongod run --dbpath /usr/local/var/mongodb --bind_ip 127.0.0.1 --rest --journal'
+
+# start|stop PostgresQL
 alias pgrun='pg_ctl -D /usr/local/var/postgres start'
 alias pgstop='pg_ctl -D /usr/local/var/postgres stop'
 
@@ -25,5 +27,9 @@ alias psl='ps -ef | grep '
 # some git shortcuts
 alias gcaa='git commit -a --amend'
 alias gpr='git pull --rebase'
+alias gti='git'
+alias master='git co master; git fetch; git pull'
 
 alias cdiff='colordiff'
+
+alias ldm_dev='ssh -f ldm_vnc -N'

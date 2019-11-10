@@ -1,5 +1,8 @@
 [ -z "$PS1" ] && return
 
+# increases the ulimit per shell
+ulimit -n 4096
+
 export HISTCONTROL=ignoredups
 shopt -s checkwinsize
 
@@ -58,13 +61,21 @@ export GIT_EDITOR='vim'
 # variable pointing GPG to the gpg-agent socket. This little script, which must be sourced
 # in your shell's init script (ie, .bash_profile, .zshrc, whatever), will either start
 # gpg-agent or set up the GPG_AGENT_INFO variable if it's already running.
-if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
-    source ~/.gnupg/.gpg-agent-info
-    export GPG_AGENT_INFO
-else
-    eval $(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)
-fi
+# if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
+#     source ~/.gnupg/.gpg-agent-info
+#     export GPG_AGENT_INFO
+# else
+#     eval $(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)
+# fi
+
+# add ssh keys and use them
+ssh-add -K ~/.ssh/id_rsa &> /dev/null
+ssh-add -K ~/.ssh/github_rsa &> /dev/null
+ssh-add -K ~/.ssh/me_le_fnord &> /dev/null
 
 # .. with rbenv
 export RBENV_ROOT=/usr/local/var/rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+# if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export PATH="/usr/local/sbin:$PATH"
+
+eval "$(rbenv init -)"
